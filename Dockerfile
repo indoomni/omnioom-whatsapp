@@ -24,6 +24,12 @@ FROM gcr.io/distroless/nodejs20-debian12
 WORKDIR /app
 
 COPY --from=prune /app/node_modules ./node_modules
-COPY --from=builder /app .
+COPY --from=builder /app/index.js .
+COPY --from=builder /app/utils.js .
+COPY --from=builder /app/bot.yml .
+COPY --from=builder /app/package.json .
+COPY --from=builder /app/yarn.lock .
+COPY --from=builder /app/commands ./commands
+COPY --from=builder /app/events ./events
 
 CMD ["index.js"]

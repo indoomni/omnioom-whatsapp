@@ -1,19 +1,20 @@
 {
-  "name": "whatsapp-bot-baileys",
+  "name": "omnioom-whatsapp",
   "version": "0.1.12",
-  "description": "This is a simple and powerful WhatsApp bot built using the [Baileys](https://github.com/WhiskeySockets/Baileys) library, an unofficial WhatsApp Web API for Node.js. It allows you to automate replies, handle user messages, and create intelligent bot logic.",
+  "description": "This is a simple and powerful WhatsApp bot built using the [Baileys](https://github.com/WhiskeySockets/Baileys) library, an unofficial WhatsApp Web API for Node.js. It allows you to automate replies, handle user messages, and create intelligent bot logic. This project was forked from Nexos Creator's [whatsapp-bot-baileys](https://github.com/nexoscreator/whatsapp-bot-baileys) project. The guy contributed so much to the community, so be sure to visit and leave a like!",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "omnioom",
     "bot",
-    "whatsapp-bot",
+    "whatsapp",
     "baileys"
   ],
-  "author": "nexoscreator",
-  "license": "MIT",
+  "author": "Iman Sjamhudi <indoomni@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "@whiskeysockets/baileys": "^6.7.18",
