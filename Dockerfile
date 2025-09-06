@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18 AS builder
+FROM node:20 AS builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN yarn install
 COPY . .
 
 # Stage 2: Prune dev dependencies
-FROM node:18 AS prune
+FROM node:20 AS prune
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ COPY --from=builder /app/package.json /app/yarn.lock ./
 RUN yarn install --production --frozen-lockfile
 
 # Stage 3: Final image
-FROM gcr.io/distroless/nodejs18-debian11
+FROM gcr.io/distroless/nodejs20-debian12
 
 WORKDIR /app
 
