@@ -17,7 +17,8 @@ ci-logs.sh
 ci-pull.sh
 ci-start.sh
 ci-stop.sh
-bot.yml
-README.md
+# bot.yml
+# README.md
+# LICENSE.md
 GEMINI.md
 .github
