@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    image: ghcr.io/indoomni/omnioom-whatsapp
+    container_name: ${PROXY_APP_NAME}
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${PROXY_APP_NAME}.rule=Host(`${PROXY_HOSTNAME}`)"
+      - "traefik.http.routers.${PROXY_APP_NAME}.entrypoints=web"
+      - "traefik.http.services.${PROXY_APP_NAME}.loadbalancer.server.port=8080"
+      - "traefik.docker.network=proxy"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

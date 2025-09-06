@@ -7,12 +7,17 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["bot", "whatsapp-bot", "baileys"],
+  "keywords": [
+    "bot",
+    "whatsapp-bot",
+    "baileys"
+  ],
   "author": "nexoscreator",
   "license": "MIT",
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "@whiskeysockets/baileys": "^6.7.18",
+    "js-yaml": "^4.1.0",
     "pino": "^9.7.0",
     "qrcode": "^1.5.4",
     "sharp": "^0.32.6"

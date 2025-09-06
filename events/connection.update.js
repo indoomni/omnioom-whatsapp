@@ -5,6 +5,8 @@
 const QRCode = require("qrcode");
 const { Boom } = require("@hapi/boom");
 const { DisconnectReason, delay } = require("@whiskeysockets/baileys");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = {
   eventName: "connection.update",
@@ -29,7 +31,12 @@ module.exports = {
         await delay(3000);
         startBot();
       } else {
-        logger.error("Logged out. Please delete auth_info and re-authenticate.");
+        const authDir = path.join(__dirname, "..", "auth_info");
+        logger.error(`Logged out. Deleting ${authDir} directory and exiting.`);
+        if (fs.existsSync(authDir)) {
+          fs.rmSync(authDir, { recursive: true, force: true });
+        }
+        process.exit(1);
       }
     } else if (connection === "open") {
       logger.info("Connected to WhatsApp");

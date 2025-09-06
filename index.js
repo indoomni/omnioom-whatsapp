@@ -66,7 +66,7 @@ async function startBot() {
     generateHighQualityLinkPreview: true,
     markOnlineOnConnect: config.bot?.online || true,
     syncFullHistory: config.bot?.history || false,
-    shouldSyncHistoryMessage: config.bot?.history || false,
+    shouldSyncHistoryMessage: () => config.bot?.history || false,
   });
 
   // Save login credentials on update
