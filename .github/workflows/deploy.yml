@@ -25,7 +25,7 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           npm version patch --no-git-tag-version
           git add package.json yarn.lock
-          git commit -m "chore(release): bump version to $(node -p \"require('./package.json').version\") [skip ci]"
+          git commit -m 'chore(release): bump version to $(node -p "require('./package.json').version") [skip ci]'
           git push
 
       - name: Get version
