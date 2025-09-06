@@ -12,6 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const pino = require("pino");
 const config = require("./utils");
+const { version: appVersion } = require("./package.json");
 
 // Logging via pino
 const logDir = path.join(__dirname, "logs");
@@ -55,7 +56,8 @@ for (const file of eventFiles) {
 async function startBot() {
   const { state, saveCreds } = await useMultiFileAuthState("auth_info");
   const { version, isLatest } = await fetchLatestBaileysVersion();
-  logger.info(`Using Baileys v${version.join(".")}, Latest: ${isLatest}`);
+  logger.info(`Starting app version: ${appVersion}`);
+  logger.info(`Using Baileys version: ${version.join(".")}, Is library latest? ${isLatest}`);
 
   const sock = makeWASocket({
     version,
